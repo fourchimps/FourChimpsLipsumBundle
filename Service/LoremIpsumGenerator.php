@@ -2,6 +2,8 @@
 
 namespace FourChimps\LipsumBundle\Service;
 
+use RuntimeException;
+
 /**
  * Enable us to wrap some caching around the Lipsum webservice. Note caching only 
  * works within a single request - its not relevant across multiple requests.
