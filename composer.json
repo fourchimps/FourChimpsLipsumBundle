@@ -1,0 +1,22 @@
+{
+    "name": "fourchimps/lipsum-bundle",
+    "type": "symfony-bundle",
+    "description": "Wrapper for Lorem Ipsum API for Symfony2",
+    "keywords": ["lorem", "generator", "fixture"],
+    "homepage": "https://github.com/fourchimps/FourChimpsLipsumBundle.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shaun Masterman",
+            "email": "shaun@masterman.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.1.*",
+    },
+    "autoload": {
+        "psr-0": { "FourChimps\\LipsumBundle": "" }
+    },
+    "target-dir": "FourChimps/LipsumBundle"
+}
