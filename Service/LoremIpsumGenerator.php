@@ -3,6 +3,7 @@
 namespace FourChimps\LipsumBundle\Service;
 
 use RuntimeException;
+use FourChimps\LipsumBundle\FourChimpsLipsumBundle;
 
 /**
  * Enable us to wrap some caching around the Lipsum webservice. Note caching only 
@@ -43,7 +44,7 @@ class LoremIpsumGenerator/*DefaultController extends Controller*/
      */
     private function warmCache() {
     	$this->numberOf = 10;
-    	$this->typeOfResponse = 'paragraph';
+    	$this->typeOfResponse = FourChimpsLipsumBundle::LIPSUM_PARAGRAPH;
     	$this->startWithLoremIpsum = 'yes';
     
     	$response = simplexml_load_file($this->getURL());
@@ -69,10 +70,10 @@ class LoremIpsumGenerator/*DefaultController extends Controller*/
     	
     	// cached request
     	switch ($this->typeOfResponse) {
-    		case 'bytes': return $this->getBytes();    			    		
-    		case 'words': return $this->getWords();
-    		case 'sentences': return $this->getSentences($this->numberOf);
-    		case 'paragraphs': return $this->getParagraphs();
+    		case FourChimpsLipsumBundle::LIPSUM_BYTE: return $this->getBytes();
+    		case FourChimpsLipsumBundle::LIPSUM_WORD: return $this->getWords();
+    		case FourChimpsLipsumBundle::LIPSUM_SENTENCE: return $this->getSentences($this->numberOf);
+    		case FourChimpsLipsumBundle::LIPSUM_PARAGRAPH: return $this->getParagraphs();
     		default:
     			throw new RuntimeException("Unknown request type: $this->typeOfResponse");
     		break;
